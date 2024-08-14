@@ -77,10 +77,10 @@ async function getById(id) {
             'name',
             'desc',
             raw(`CASE 
-                WHEN stock >= 5 THEN 'stock tersedia'
-                WHEN stock < 5 THEN 'stock < 5'
-                WHEN stock = 0 THEN 'stock tidak tersedia'
-             END` ).as('stock')
+                    WHEN stock >= 5 THEN 'stock tersedia'
+                    WHEN stock < 5 THEN 'stock < 5'
+                    WHEN stock = 0 THEN 'stock tidak tersedia'
+                 END` ).as('stock')
         )
         .whereNull('deleted_at')
         .findById(id);
