@@ -11,10 +11,6 @@ const softDelete = objectionSoftDelete.default({
 });
 
 
-/**
- * Define model
- * @extends Model
- */
 class Product extends softDelete(Model) {
   $beforeInsert() {
     this.created_at = new Date().toISOString();
