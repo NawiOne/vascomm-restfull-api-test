@@ -44,31 +44,102 @@
     npx knex migrate:latest
     npx knex seed:run
     ```
+    <br>
+    <br>
+    <br>
 
-### Database
-  This repo uses [PostgreSQL](https://www.postgresql.org/) for the database
 
 
-### Endpoint List
-BASE URL -> http://localhost:3000
+## Endpoint List
+**BASE URL -> http://localhost:3000**
 
-USER/CUSTOMER
- * POST -> /api/v1/auth/register
- * POST -> /api/v1/auth/user/register
- * GET -> /api/v1/auth/google  ***(use web browser to test this endpoint)***
- * POST -> /api/v1/auth/user/login
- * POST -> /api/v1/auth/login
- * GET -> /api/v1/customer
+***USER/CUSTOMER (User CRUD)***
+ * GET -> /api/v1/auth/google  ***(use web browser to test this endpoint)***<br>
+
+ * POST -> /api/v1/auth/register<br>
+ ``payload``
+   ```sh
+         {
+            "name": "Nawi Rudin",
+            "email": "rudinnawi@gmail.com",
+            "password": "test123",
+            "confirmPassword": "test123"
+         }
+   ```
+
+ * POST -> /api/v1/auth/user/register<br>
+   ``payload``
+   ```sh
+         {
+            "name": "Nawi Rudin",
+            "email": "rudinnawi@gmail.com",
+            "password": "test123",
+            "confirmPassword": "test123"
+         }
+   ```
+
+ * POST -> /api/v1/auth/user/login<br>
+   ``payload``
+   ```sh
+         {
+            "email": "test@gmail.com",
+            "password": "test123",
+         }
+   ```
+
+ * POST -> /api/v1/auth/login<br>
+   ``payload``
+   ```sh
+         {
+            "email": "test@gmail.com",
+            "password": "test123",
+         }
+   ```
+
+ * GET -> /api/v1/customer <br>
+   ``query url``
+   ```sh
+         search: string
+         page: number
+         count: number
+         orderBy: column_name,
+         orderType: 'ASC/DESC'
+   ```
+
  * GET -> /api/v1/customer/:id
  * PATCH -> /api/v1/customer/:id
- * DELETE -> /api/v1/customer/:id
+ * DELETE -> /api/v1/customer/:id<br><br><br>
 
- PRODUCT
- * POST -> /api/v1/product
- * GET -> /api/v1/product
+
+
+ ***PRODUCT (Product CRUD)***
+ * POST -> /api/v1/product<br>
+   ``payload``
+   ```sh
+         {
+            "name": "oppo",
+            "desc": "hp baru",
+            "stock": 5
+         }
+   ```
+
+ * GET -> /api/v1/product <br>
+   ``query url``
+   ```sh
+         search: string
+         page: number
+         count: number
+         orderBy: column_name,
+         orderType: 'ASC/DESC'
+   ```
  * GET -> /api/v1/product/:id
  * PATCH -> /api/v1/product/:id
  * DELETE -> /api/v1/product/:id
+ 
+
+
+### Database
+  This repo uses [PostgreSQL](https://www.postgresql.org/) for the database
 
 
 
