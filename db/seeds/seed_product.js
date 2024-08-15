@@ -41,5 +41,20 @@ exports.seed = async function(knex) {
       desc: 'Smartphone canggih dari IQOO',
       stock: 3
     },
+    {
+      name: 'Huawei',
+      desc: 'Smartphone canggih dari Huawei',
+      stock: 3
+    },
+    {
+      name: 'Supra',
+      desc: 'Smartphone canggih dari Supra',
+      stock: 1
+    },
+    {
+      name: 'Polythron',
+      desc: 'Smartphone canggih dari Polythron',
+      stock: 1
+    },
   ]);
 };
