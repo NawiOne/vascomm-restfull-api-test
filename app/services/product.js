@@ -18,9 +18,10 @@ async function listProduct({
             'desc',
             raw(`CASE 
                     WHEN stock >= 5 THEN 'stock tersedia'
-                    WHEN stock < 5 THEN 'stock < 5'
+                    WHEN stock < 5 AND stock > 0 THEN 'stock < 5'
                     WHEN stock = 0 THEN 'stock tidak tersedia'
-                 END` ).as('stock')
+                 END` ).as('stock'),
+            'created_at'
         )
         .whereNull('deleted_at')
         .where((builder) => whereIlikeProduct(builder, search))
@@ -78,7 +79,7 @@ async function getById(id) {
             'desc',
             raw(`CASE 
                     WHEN stock >= 5 THEN 'stock tersedia'
-                    WHEN stock < 5 THEN 'stock < 5'
+                    WHEN stock < 5 AND stock > 0 THEN 'stock < 5'
                     WHEN stock = 0 THEN 'stock tidak tersedia'
                  END` ).as('stock')
         )
@@ -105,7 +106,7 @@ async function updateById(id, {
         stock
     });
 
-    await isNameDuplicate(id, name);
+    if (name) await isDataDuplicate(id, name);
 
     const dataUpdated = await productModel.query()
         .patchAndFetchById(id, payload);
@@ -118,7 +119,7 @@ async function updateById(id, {
     }
 }
 
-async function isNameDuplicate(id, name) {
+async function isDataDuplicate(id, name) {
     const data = await productModel.query()
         .select('id')
         .whereNull('deleted_at')

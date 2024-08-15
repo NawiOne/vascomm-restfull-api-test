@@ -7,7 +7,7 @@ async function list(req, _, next) {
         search: Joi.string().optional(),
         page: Joi.number().min(0).optional(),
         count: Joi.number().min(1).optional(),
-        orderBy: Joi.number().optional(),
+        orderBy: Joi.string().optional(),
         orderType: Joi.string().valid('ASC', 'DESC').optional()
 
     });

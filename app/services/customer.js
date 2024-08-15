@@ -61,7 +61,7 @@ async function updateById(id, { name, email }) {
 
     if (!customer) throw new DataNotFound('User not found');
 
-    await isNameDuplicate(id, name)
+    if (email) await isDataDuplicate(id, email)
 
     const payload = deleteEmptyValue({ name, email })
 
@@ -87,15 +87,15 @@ async function deleteById(id) {
     }
 }
 
-async function isNameDuplicate(id, name) {
+async function isDataDuplicate(id,email) {
     const data = await customerModel.query()
         .select('id')
         .whereNull('deleted_at')
         .whereNot('id', id)
-        .whereRaw('LOWER(name) = ?', name.toLowerCase())
+        .whereRaw('LOWER(email) = ?', email.toLowerCase())
         .first();
 
-    if (data) throw new InvalidData('Customer name is already exists')
+    if (data) throw new InvalidData('Customer email is already exists')
 
 }
 

@@ -2,11 +2,6 @@
  * @extends Error
  */
 class Unauthorized extends Error {
-  /**
-   * @param  {string} message
-   * @param  {string} errorCode
-   * @param  {string} statusCode
-   */
   constructor(message, errorCode=null) {
     super(message, errorCode);
 
