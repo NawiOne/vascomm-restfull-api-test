@@ -44,6 +44,11 @@
     npx knex migrate:latest
     npx knex seed:run
     ```
+
+5. Run the application<br>
+   ```sh
+    nodemon
+    ```
     <br>
 
 ## Endpoint List
