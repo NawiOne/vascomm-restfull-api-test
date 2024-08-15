@@ -107,7 +107,14 @@
    ```
 
  * GET -> /api/v1/customer/:id
- * PATCH -> /api/v1/customer/:id
+ * PATCH -> /api/v1/customer/:id<br>
+  ``payload``
+   ```sh
+         {
+            "email": "test@gmail.com",
+            "name": "nawi",
+         }
+   ```
  * DELETE -> /api/v1/customer/:id<br><br><br>
 
 
@@ -133,7 +140,14 @@
          orderType: 'ASC/DESC'
    ```
  * GET -> /api/v1/product/:id
- * PATCH -> /api/v1/product/:id
+ * PATCH -> /api/v1/product/:id<br>
+   ```sh
+         {
+            "name": "oppo",
+            "desc": "hp baru",
+            "stock": 5
+         }
+      ```
  * DELETE -> /api/v1/product/:id
  
 
