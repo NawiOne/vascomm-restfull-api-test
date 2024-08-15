@@ -45,10 +45,6 @@
     npx knex seed:run
     ```
     <br>
-    <br>
-    <br>
-
-
 
 ## Endpoint List
 **BASE URL -> http://localhost:3000**
